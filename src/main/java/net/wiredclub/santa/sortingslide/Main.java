@@ -1,5 +1,7 @@
 package net.wiredclub.santa.sortingslide;
 
+import java.util.stream.Collectors;
+
 public class Main {
 
 	private static final int FREDI = 39;
@@ -12,58 +14,64 @@ public class Main {
 
 		SlideOutput slideOutput = slideConfiguration.slide1(IPHIS, ESMERALDA, FREDI, OSWALD);
 		System.out.println("Slide 1 (IPHIS, ESMERALDA, FREDI, OSWALD): " +
-				slideOutput.getOutputValue1() + ", " +
-				slideOutput.getOutputValue2() + ", " +
-				slideOutput.getOutputValue3() + ", " +
-				slideOutput.getOutputValue4());
+				slideOutput.getOutputValue(0) + ", " +
+				slideOutput.getOutputValue(1) + ", " +
+				slideOutput.getOutputValue(2) + ", " +
+				slideOutput.getOutputValue(3));
 
 		slideOutput = slideConfiguration.slide1(OSWALD, FREDI, ESMERALDA, IPHIS);
 		System.out.println("Slide 1 (OSWALD, FREDI, ESMERALDA, IPHIS): " +
-				slideOutput.getOutputValue1() + ", " +
-				slideOutput.getOutputValue2() + ", " +
-				slideOutput.getOutputValue3() + ", " +
-				slideOutput.getOutputValue4());
+				slideOutput.getOutputValue(0) + ", " +
+				slideOutput.getOutputValue(1) + ", " +
+				slideOutput.getOutputValue(2) + ", " +
+				slideOutput.getOutputValue(3));
 
 		slideOutput = slideConfiguration.slide2(IPHIS, ESMERALDA, FREDI, OSWALD);
 		System.out.println("Slide 2 (IPHIS, ESMERALDA, FREDI, OSWALD): " +
-				slideOutput.getOutputValue1() + ", " +
-				slideOutput.getOutputValue2() + ", " +
-				slideOutput.getOutputValue3() + ", " +
-				slideOutput.getOutputValue4());
+				slideOutput.getOutputValue(0) + ", " +
+				slideOutput.getOutputValue(1) + ", " +
+				slideOutput.getOutputValue(2) + ", " +
+				slideOutput.getOutputValue(3));
 
 		slideOutput = slideConfiguration.slide2(OSWALD, FREDI, ESMERALDA, IPHIS);
 		System.out.println("Slide 2 (OSWALD, FREDI, ESMERALDA, IPHIS): " +
-				slideOutput.getOutputValue1() + ", " +
-				slideOutput.getOutputValue2() + ", " +
-				slideOutput.getOutputValue3() + ", " +
-				slideOutput.getOutputValue4());
+				slideOutput.getOutputValue(0) + ", " +
+				slideOutput.getOutputValue(1) + ", " +
+				slideOutput.getOutputValue(2) + ", " +
+				slideOutput.getOutputValue(3));
 
 		slideOutput = slideConfiguration.slide3(IPHIS, ESMERALDA, FREDI, OSWALD);
 		System.out.println("Slide 3 (IPHIS, ESMERALDA, FREDI, OSWALD): " +
-				slideOutput.getOutputValue1() + ", " +
-				slideOutput.getOutputValue2() + ", " +
-				slideOutput.getOutputValue3() + ", " +
-				slideOutput.getOutputValue4());
+				slideOutput.getOutputValue(0) + ", " +
+				slideOutput.getOutputValue(1) + ", " +
+				slideOutput.getOutputValue(2) + ", " +
+				slideOutput.getOutputValue(3));
 
 		slideOutput = slideConfiguration.slide3(OSWALD, FREDI, ESMERALDA, IPHIS);
 		System.out.println("Slide 3 (OSWALD, FREDI, ESMERALDA, IPHIS): " +
-				slideOutput.getOutputValue1() + ", " +
-				slideOutput.getOutputValue2() + ", " +
-				slideOutput.getOutputValue3() + ", " +
-				slideOutput.getOutputValue4());
+				slideOutput.getOutputValue(0) + ", " +
+				slideOutput.getOutputValue(1) + ", " +
+				slideOutput.getOutputValue(2) + ", " +
+				slideOutput.getOutputValue(3));
 
 		slideOutput = slideConfiguration.slide4(IPHIS, ESMERALDA, FREDI, OSWALD);
 		System.out.println("Slide 4 (IPHIS, ESMERALDA, FREDI, OSWALD): " +
-				slideOutput.getOutputValue1() + ", " +
-				slideOutput.getOutputValue2() + ", " +
-				slideOutput.getOutputValue3() + ", " +
-				slideOutput.getOutputValue4());
+				slideOutput.getOutputValue(0) + ", " +
+				slideOutput.getOutputValue(1) + ", " +
+				slideOutput.getOutputValue(2) + ", " +
+				slideOutput.getOutputValue(3));
 
 		slideOutput = slideConfiguration.slide4(OSWALD, FREDI, ESMERALDA, IPHIS);
 		System.out.println("Slide 4 (OSWALD, FREDI, ESMERALDA, IPHIS): " +
-				slideOutput.getOutputValue1() + ", " +
-				slideOutput.getOutputValue2() + ", " +
-				slideOutput.getOutputValue3() + ", " +
-				slideOutput.getOutputValue4());
+				slideOutput.getOutputValue(0) + ", " +
+				slideOutput.getOutputValue(1) + ", " +
+				slideOutput.getOutputValue(2) + ", " +
+				slideOutput.getOutputValue(3));
+
+		slideOutput = slideConfiguration.slide5(2, 1);
+		System.out.println("Slide 5 (2, 1): " + slideOutput.getOutputValues()
+				.stream()
+				.map(Object::toString)
+				.collect(Collectors.joining(", ")));
 	}
 }

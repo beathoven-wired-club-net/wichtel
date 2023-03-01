@@ -1,32 +1,43 @@
 package net.wiredclub.santa.sortingslide;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class SlideOutput {
 
-	private final int outputValue1;
-	private final int outputValue2;
-	private final int outputValue3;
-	private final int outputValue4;
+	private final List<Integer> outputValues;
 
-	public SlideOutput(int outputValue1, int outputValue2, int outputValue3, int outputValue4) {
-		this.outputValue1 = outputValue1;
-		this.outputValue2 = outputValue2;
-		this.outputValue3 = outputValue3;
-		this.outputValue4 = outputValue4;
+	private SlideOutput(List<Integer> outputValues) {
+		this.outputValues = outputValues;
 	}
 
-	public int getOutputValue1() {
-		return outputValue1;
+	public int getOutputValue(int index) {
+		if (index < 0 || index >= outputValues.size()) {
+			throw new IndexOutOfBoundsException();
+		}
+		return outputValues.get(index);
 	}
 
-	public int getOutputValue2() {
-		return outputValue2;
+	public List<Integer> getOutputValues() {
+		return Collections.unmodifiableList(outputValues);
 	}
 
-	public int getOutputValue3() {
-		return outputValue3;
-	}
+	public static class Builder {
 
-	public int getOutputValue4() {
-		return outputValue4;
+		private final List<Integer> outputValues;
+
+		public Builder() {
+			outputValues = new ArrayList<>();
+		}
+
+		public Builder addOutput(int value) {
+			outputValues.add(value);
+			return this;
+		}
+
+		public SlideOutput build() {
+			return new SlideOutput(outputValues);
+		}
 	}
 }
